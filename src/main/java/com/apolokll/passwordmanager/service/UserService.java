@@ -1,6 +1,7 @@
 package com.apolokll.passwordmanager.service;
 
 import com.apolokll.passwordmanager.entity.User;
+import com.apolokll.passwordmanager.entity.UserRole;
 import com.apolokll.passwordmanager.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,7 @@ public class UserService {
         User user = new User();
         user.setUsername(username);
         user.setEmail(email);
+        user.setRole(UserRole.ROLE_USER);
         user.setPassword(encodePassword);
 
         return userRepository.save(user);
